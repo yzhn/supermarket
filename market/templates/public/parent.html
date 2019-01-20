@@ -4,17 +4,25 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>超市</title>
+        {% block title1 %}
+
+        {% endblock %}
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="renderer" content="webkit">
         <meta http-equiv="Cache-Control" content="no-siteapp" />
-        <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">
+{#        <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">#}
 		<link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
 		<script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
 		<script src="{% static 'js/time.js' %}"></script>
+     {% block head_css %}
+
+        {% endblock %}
+     {% block head_js %}
+
+        {% endblock %}
 	</head>
 	<body>
 		<header data-am-widget="header" class="am-header am-header-default sq-head ">
@@ -35,6 +43,9 @@
 	    </div>-->
 	    <div style="height: 3rem;"></div>
 	   {% block content %}
+
+	   {% endblock %}
+        {% block foot_js %}
 
 	   {% endblock %}
         {% block footer %}
