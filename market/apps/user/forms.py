@@ -65,3 +65,80 @@ class LoginModelForm(forms.ModelForm):
         # 将用户信息保存到cleaned_data中
         self.cleaned_data['user'] = user
         return self.cleaned_data
+
+
+class ForgetPasswordModelForm(forms.ModelForm):
+    pwd1 = forms.CharField(max_length=16, min_length=6, error_messages={'required': '密码必填',
+                                                                        'max_length': '字符个数不能超过16位',
+                                                                        'min_length': '字符个数不能少于6位'})
+    pwd2 = forms.CharField(error_messages={"required": '密码不一致'})
+
+    class Meta:
+        model = Register
+        fields = ['phone', ]
+        error_messages = {'phone': {'required': '手机号码必填'}}
+
+    def clean_phone(self):
+        # 获取清洗后的数据
+        phone = self.cleaned_data.get('phone')
+        # 在数据库中匹配
+        rs = Register.objects.filter(phone=phone).exists()
+        # 不存在就抛出异常
+        if rs is None:
+            raise forms.ValidationError('号码不正确')
+        return phone
+
+    def clean(self):
+        #  获取两次输入的手机号码
+        pd1 = self.cleaned_data.get('pwd1')
+        pd2 = self.cleaned_data.get('pwd2')
+        # 比较两次的手机号码是否一致
+        if pd1 and pd2 and pd1 != pd2:
+            raise forms.ValidationError({'password2': '密码不正确'})
+        return self.cleaned_data
+
+
+class InforForm(forms.Form):
+    birthday = forms.DateField(error_messages={'required': '日期格式不对'})
+
+
+    def clean_phone(self):
+        # 获取清洗后的数据
+        phone = self.cleaned_data.get('phone')
+        # 在数据库中匹配
+        rs = Register.objects.filter(phone=phone).exists()
+        # 存在就抛出异常
+        if rs.DosNotExist:
+            raise forms.ValidationError('号码不正确')
+        return phone
+
+
+class ReviseModelForm(forms.ModelForm):
+    pwd1 = forms.CharField(max_length=16, min_length=6, error_messages={'required': '密码必填',
+                                                                        'max_length': '字符个数不能超过16位',
+                                                                        'min_length': '字符个数不能少于6位'})
+    pwd2 = forms.CharField(error_messages={"required": '密码不一致'})
+
+    class Meta:
+        model = Register
+        fields = ['password', ]
+        error_messages = {'password': {'required': '密码必填'}}
+
+    def clean_phone(self):
+        # 获取清洗后的数据
+        password = self.cleaned_data.get('password')
+        # 在数据库中匹配
+        rs = Register.objects.filter(password=password).exists()
+        # 存在就抛出异常
+        if rs.DosNotExist:
+            raise forms.ValidationError('密码不正确')
+        return password
+
+    def clean(self):
+        #  获取两次输入的手机号码
+        pd1 = self.cleaned_data.get('pwd1')
+        pd2 = self.cleaned_data.get('pwd2')
+        # 比较两次的手机号码是否一致
+        if pd1 and pd2 and pd1 != pd2:
+            raise forms.ValidationError({'password2': '密码不正确'})
+        return self.cleaned_data
