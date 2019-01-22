@@ -40,28 +40,29 @@
 	    	</li>
 	    	<li>
                 <i>昵称</i>
-                <input type="text" class="infor-tele" placeholder="一纸荒年"/>
+                <input type="text" name="nickname" class="infor-tele" placeholder="一纸荒年"/>
             </li>
 	    	<li>
                     <i>性别</i>
 	    			<i class="infor-tele">
 	    				<label class="am-radio-inline">
-				          <input type="radio" name="radio10" checked="checked" value="1" data-am-ucheck>男
+				          <input type="radio" name="gender" checked="checked" value="1" data-am-ucheck>男
 				        </label>
 				        <label class="am-radio-inline">
-				          <input type="radio" name="radio10" value="1" data-am-ucheck>女
+				          <input type="radio" name="gender" value="1" data-am-ucheck>女
 				        </label>
 	    			</i>
 	    	</li><li>
 	    			<i>生日</i>
-                    <input class="infor-tele" placeholder="出生日期"/>
+                    <input name="birthday" type="date" class="infor-tele" placeholder="出生日期"/>
+                <a class="am-text-danger">{{ errors.birthday.0 }}</a>
 	    	</li>
 	    </ul>
 	    <div style="height: 10px; background: #efefef;"></div>
 	     <ul class="safty1">
 	    	<li>
 	    			<i>学校</i>
-	    			<input class="infor-tele" placeholder="就读于哪个学校"/>	    			
+	    			<input name="school" class="infor-tele" placeholder="就读于哪个学校"/>
 	    	</li>
 	    	<li>
 	    			<i>位置</i>
@@ -69,11 +70,11 @@
 	    	</li>
 	    	<li>
 	    			<i>故乡</i>
-                    <input class="infor-tele" placeholder="来自哪里"/>
+                    <input name="hometown" class="infor-tele" placeholder="来自哪里"/>
 	    	</li>
 	    	<li>
 	    			<i>手机</i>
-                    <input class="infor-tele" placeholder="手机号码"/>
+                    <input name="phone" class="infor-tele" placeholder="手机号码"/>
 	    	</li>
           </ul>
             <input type="submit" class="login-btn" value="保存">

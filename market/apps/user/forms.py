@@ -1,4 +1,7 @@
+from datetime import date
+
 from django import forms
+from django_redis import get_redis_connection
 
 from user.helper import set_password
 from user.models import Register
@@ -11,6 +14,16 @@ class RegisterModelForm(forms.ModelForm):
                                                 'max_length': '字符不能超过16个',
                                                 'min_length': '字符不能少于6'})
     password2 = forms.CharField(error_messages={'required': '密码不一致'})
+
+    # 验证码
+    captcha = forms.CharField(max_length=6,
+                              error_messages={
+                                  'required': "验证码必须填写"
+                              })
+
+    agree = forms.BooleanField(error_messages={
+        'required': '必须同意用户协议'
+    })
 
     class Meta:
         model = Register
@@ -28,11 +41,29 @@ class RegisterModelForm(forms.ModelForm):
             raise forms.ValidationError('号码已备注册')
         return phone
 
+    # 综合校验
     def clean_password(self):
         pd1 = self.cleaned_data.get('password1')
         pd2 = self.cleaned_data.get('password2')
+        # 比较两次输入的密码是否一致,不一致时抛出错误
         if pd1 and pd2 and pd1 != pd2:
             raise forms.ValidationError({'password2': '密码不正确'})
+
+            # 验证 用户传入的验证码和redis中的是否一样
+            # 用户传入的
+        try:
+            captcha = self.cleaned_data.get('captcha')
+            phone = self.cleaned_data.get('phone', '')
+            # 获取redis中的
+            red = get_redis_connection()
+            random_code = red.get(phone)
+            # 二进制, 转码
+            random_code = random_code.decode('utf-8')
+            # 比对
+            if captcha and captcha != random_code:
+                raise forms.ValidationError({"captcha": "验证码输入错误!"})
+        except:
+            raise forms.ValidationError({"captcha": "验证码输入错误!"})
         return self.cleaned_data
 
 
@@ -98,21 +129,6 @@ class ForgetPasswordModelForm(forms.ModelForm):
         return self.cleaned_data
 
 
-class InforForm(forms.Form):
-    birthday = forms.DateField(error_messages={'required': '日期格式不对'})
-
-
-    def clean_phone(self):
-        # 获取清洗后的数据
-        phone = self.cleaned_data.get('phone')
-        # 在数据库中匹配
-        rs = Register.objects.filter(phone=phone).exists()
-        # 存在就抛出异常
-        if rs.DosNotExist:
-            raise forms.ValidationError('号码不正确')
-        return phone
-
-
 class ReviseModelForm(forms.ModelForm):
     pwd1 = forms.CharField(max_length=16, min_length=6, error_messages={'required': '密码必填',
                                                                         'max_length': '字符个数不能超过16位',
@@ -142,3 +158,16 @@ class ReviseModelForm(forms.ModelForm):
         if pd1 and pd2 and pd1 != pd2:
             raise forms.ValidationError({'password2': '密码不正确'})
         return self.cleaned_data
+
+
+class MemberModelForm(forms.ModelForm):
+    class Meta:
+        model = Register
+        fields = ['birthday', ]
+        error_messages = {'birthday': {'required': '日期格式不对'}}
+
+    def cleaned_data(self):
+        birthday = self.cleaned_data.get('birthday')
+        if birthday > date.today():
+            raise forms.ValidationError('出生日期应小于今天')
+        return birthday
