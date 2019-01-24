@@ -1,56 +1,63 @@
-  {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-        {% block title1 %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% block title1 %}
+
+    {% endblock %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">
+    <link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'js/time.js' %}"></script>
+    <script src="{% static 'js/popup.mini.js' %}"></script>
+    {% block head_css %}
+
+    {% endblock %}
+    {% block head_js %}
+
+    {% endblock %}
+</head>
+<body>
+<header data-am-widget="header" class="am-header am-header-default sq-head ">
+    <div class="am-header-left am-header-nav">
+        <a href="javascript:history.back()" class="">
+            <i class="am-icon-chevron-left"></i>
+        </a>
+    </div>
+    <h1 class="am-header-title">
+        {% block title %}
 
         {% endblock %}
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="renderer" content="webkit">
-        <meta http-equiv="Cache-Control" content="no-siteapp" />
-        <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">
-		<link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css" />
-		<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
-		<script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
-{#		<script src="{% static 'js/time.js' %}"></script>#}
-     {% block head_css %}
+    </h1>
+</header>
+<div style="height: 49px;"></div>
+<!--<div class="login-logo">
+    <img src="images/logo.png" />
+</div>-->
+<div style="height: 3rem;"></div>
+{% block content %}
 
-        {% endblock %}
-     {% block head_js %}
+{% endblock %}
+{% block foot_js %}
 
-        {% endblock %}
-	</head>
-	<body>
-		<header data-am-widget="header" class="am-header am-header-default sq-head ">
-			<div class="am-header-left am-header-nav">
-				<a href="javascript:history.back()" class="">
-					<i class="am-icon-chevron-left"></i>
-				</a>
-			</div>
-			<h1 class="am-header-title">
-  	            {% block title %}
+{% endblock %}
+{% block footer %}
 
-  	            {% endblock %}
-            </h1>
-	    </header>
-	    <div style="height: 49px;"></div>
-	    <!--<div class="login-logo">
-	    	<img src="images/logo.png" />
-	    </div>-->
-	    <div style="height: 3rem;"></div>
-	   {% block content %}
-
-	   {% endblock %}
-        {% block foot_js %}
-
-	   {% endblock %}
-        {% block footer %}
-
-        {% endblock %}
-
-	</body>
+{% endblock %}
+<script type='text/javascript'>
+    (function () {
+        new PopUp_api({el: '.index-qd', html: '.qd-box'});
+    })()
+</script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/amazeui.min.js' %}"></script>
+</body>
 </html>

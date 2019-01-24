@@ -10,13 +10,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="renderer" content="webkit">
         <meta http-equiv="Cache-Control" content="no-siteapp" />
-        <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">
+{#        <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">#}
 		<link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'css/check.css' %}" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-    <form action="" method="post">
+    <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
         {% csrf_token %}
 		<header data-am-widget="header" class="am-header am-header-default sq-head ">
 			<div class="am-header-left am-header-nav">
@@ -31,13 +31,15 @@
 	    <div style="height: 49px;"></div>
 	    <ul class="safty1">
 	    	<li>
-	    		<a href="">
-	    			<i style="margin-top: 25px;">头像</i>
+                <i style="margin-top: 25px;">头像</i>
 	    			<div class="infor-pic">
-	    				<img src="{% static 'images/infortx.png' %}" />
+	    				<img src="{{ MEDIA_URL }}{{user.logo}}" />
 	    			</div>
-	    		</a>
+
 	    	</li>
+            <li>
+                <input type="file" name="head">
+            </li>
 	    	<li>
                 <i>昵称</i>
                 <input type="text" name="nickname" class="infor-tele" placeholder="一纸荒年"/>
@@ -80,5 +82,6 @@
             <input type="submit" class="login-btn" value="保存">
 	    <script src="{% static 'js/jquery.min.js' %}"></script>
         <script src="{% static 'js/amazeui.min.js' %}"></script>
+         </form>
     </body>
 </html>

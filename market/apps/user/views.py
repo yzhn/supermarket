@@ -164,11 +164,16 @@ def revise(request):
 class InforView(VerifyLoginView):
 
     def get(self, request):
-        return render(request, 'user/infor.html')
+        id = request.session.get('ID')
+        user = Register.objects.get(pk=id)
+        context = {'user': user}
+        return render(request, 'user/infor.html', context=context)
 
     def post(self, request):
         # 获取数据
         data = request.POST
+        head = request.FILES.get('logo')
+        id = request.session.get('ID')
         form = MemberModelForm(data)
         if form.is_valid():
             cleaned_data = form.cleaned_data
@@ -186,6 +191,12 @@ class InforView(VerifyLoginView):
                                                         birthday=birthday,
                                                         school=school,
                                                         hometown=hometown)
+
+            user = Register.objects.get(pk=id)
+            if head is not None:
+                user.logo = head
+                user.save()
+            login(request, user)
             return redirect('user:个人中心')
 
         else:
@@ -193,18 +204,16 @@ class InforView(VerifyLoginView):
             return render(request, 'user/infor.html', context=context)
 
 
-# class MemberView(VerifyLoginView):
-class MemberView(View):
-    """个人中心"""
+"""个人中心"""
 
-    # @method_decorator(check_login)
+
+class MemberView(VerifyLoginView):
+
     def get(self, request):
-        return render(request, 'user/member.html')
+        id = request.session.get('ID')
+        user = Register.objects.get(pk=id)
+        context = {'user': user}
+        return render(request, 'user/member.html', context=context)
 
-    # @method_decorator(check_login)
     def post(self, request):
         pass
-
-    # @method_decorator(check_login)
-    # def dispatch(self, request, *args, **kwargs):
-    #     return super().dispatch(request, *args, **kwargs)

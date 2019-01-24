@@ -1,34 +1,21 @@
+{% extends 'public/parent.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>个人中心</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="renderer" content="webkit">
-        <meta http-equiv="Cache-Control" content="no-siteapp" />
-        <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">
-		<link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css" />
-		<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
-		<script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
-		<script src="{% static 'js/popup.mini.js' %}"></script>
-	</head>
-	<body style="background: #f6f6f6;">
-		<header data-am-widget="header" class="am-header am-header-default sq-head ">
-			<h1 class="am-header-title">
-  	            <a href="" class="">个人中心</a>
-            </h1>
-	    </header>
+	{% block title1 %}
+	<title>个人中心</title>
+	{% endblock %}
+    {% block title %}
+    <a href="" class="">个人中心</a>
+    {% endblock %}
+
+    {% block content %}
+     </header>
 	    <div style="height: 49px;"></div>
 	    <div class="member">
-	    	<div class="mem-tit">15078921546 
+	    	<div class="mem-tit">15078921546
 	    		<a href="step.html" class="step"><img src="{% static 'images/step.png' %}" width="26"/></a>
 	    	</div>
 	    	<div class="mem-pic">
-		    	<div class="mem-pic-bg" style="background-image: url(images/memtx.png);"></div>
+		    	<div class="mem-pic-bg" style="background-image: url({{ MEDIA_URL }}{{user.logo}});"></div>
 	    	</div>
 	    	<ul class="member-menu">
 			<li>
@@ -70,7 +57,7 @@
 		    	<li><a href="allorder.html"> <img src="{% static 'images/1-icon3.png' %}"> <p>退换货</p></a></li>
 		    </ul>
 		    <div class="u-list-main">
-		  		<img src="images/order-my.png" width="27" />
+		  		<img src="{% static 'images/order-my.png' %}" width="27" />
 		  		<span>帐户与安全</span>
 		  	</div>
 		    <ul class="user-nav">
@@ -169,7 +156,7 @@
       <!--底部-->
  <div style="height: 55px;"></div>
  <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout" id="">
-      <ul class="am-navbar-nav am-cf am-avg-sm-5">   
+      <ul class="am-navbar-nav am-cf am-avg-sm-5">
           <li>
             <a href="index.html" class="">
                 <span class="am-icon-home"></span>
@@ -194,7 +181,7 @@
                 <span class="am-navbar-label">订单</span>
             </a>
           </li>
- 
+
           <li>
             <a href="member.html" class="curr">
                 <span class="am-icon-user"></span>
@@ -203,17 +190,11 @@
           </li>
       </ul>
 </div>
+
+
+    {% endblock %}
+
+
  
- 
- 
- 
- <script type='text/javascript'>
-	(function(){
-		 new PopUp_api({el:'.index-qd',html:'.qd-box'});
-	})()
-</script>
- 
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/amazeui.min.js' %}"></script>
-	</body>
-</html>
+
+

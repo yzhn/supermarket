@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     # 添加购物车cart
     'cart.apps.CartConfig',
+    # 添加ckeditor富文本编辑器
+    'ckeditor',
+    # 添加ckeditor富文本编辑器文件上传部件
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -121,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -136,6 +141,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+# 设置静态文件根目录  上线的时候使用
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # 添加Django缓存默认
 CACHES = {
     "default": {
@@ -153,3 +160,19 @@ SESSION_CACHE_ALIAS = "default"
 # 配置短信需要的key
 ACCESS_KEY_ID = "LTAI2qSiJdWP87em"
 ACCESS_KEY_SECRET = "FzORQ587PgGBoOAdmxzCjaxQi8klUi"
+
+# 1.在settings文件里，定义一个变量叫MEDIA_URL。（目的是分配一个资源URL）
+MEDIA_URL = "/static/media/"
+
+# 2.配置该URL对应的物理目录存储地址
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+
+# 配置富文本编辑上传地址
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# 编辑器样式配置
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
