@@ -56,10 +56,10 @@
         <ul class="list-pro">
             {% for shop_sku in shop_sku %}
                 <li>
-                    <a href="detail.html"><img src=" {{ MEDIA_URL }}{{ shop_sku.shop_logo }}" class="list-pic"/></a>
+                    <a href="{% url 'shop:详情' shop_sku.pk %}"><img src=" {{ MEDIA_URL }}{{ shop_sku.shop_logo }}" class="list-pic"/></a>
                     <div class="shop-list-mid" style="width: 65%;">
                         <div class="tit"><a
-                                href="detail.html">{{ shop_sku.spu_id.shop_name }}&emsp;{{ shop_sku.shop_name }}</a>
+                                href="{% url 'shop:详情' shop_sku.pk %}">{{ shop_sku.spu_id.shop_name }}&emsp;{{ shop_sku.shop_name }}</a>
                         </div>
                         <div class="am-gallery-desc">{{ shop_sku.price }}</div>
                         <p>{{ shop_sku.sales }}</p>

@@ -2,81 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f592e0a1-521d-4f81-9dfc-49157caf79ce" name="Default Changelist" comment="创建Django电商项目,第5天提交,完成了注册和登录,修改密码,个人资料,忘记密码,商品详情页">
-      <change beforePath="$PROJECT_DIR$/dysms_python/MANIFEST.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/README.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyun_python_sdk_dysmsapi.egg-info/PKG-INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyun_python_sdk_dysmsapi.egg-info/SOURCES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyun_python_sdk_dysmsapi.egg-info/dependency_links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyun_python_sdk_dysmsapi.egg-info/requires.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyun_python_sdk_dysmsapi.egg-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdybaseapi/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdybaseapi/request/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdybaseapi/request/v20170525/QueryTokenForMnsQueueRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdybaseapi/request/v20170525/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/v20170525/QueryInterSmsIsoInfoRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/v20170525/QuerySendDetailsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/v20170525/QueryTokenForMnsQueueRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/v20170525/SendBatchSmsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/v20170525/SendInterSmsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/v20170525/SendSmsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/aliyunsdkdysmsapi/request/v20170525/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdybaseapi/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdybaseapi/request/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdybaseapi/request/v20170525/QueryTokenForMnsQueueRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdybaseapi/request/v20170525/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/v20170525/QueryInterSmsIsoInfoRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/v20170525/QuerySendDetailsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/v20170525/QueryTokenForMnsQueueRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/v20170525/SendBatchSmsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/v20170525/SendInterSmsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/v20170525/SendSmsRequest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/build/lib/aliyunsdkdysmsapi/request/v20170525/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/const.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/demo_sms_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/demo_sms_query.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/demo_sms_send.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/dist/aliyun_python_sdk_dysmsapi-1.0.0-py3.6.egg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/bin/mnscmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_account.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_exception.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_http.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_pkg_info.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_queue.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_subscription.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_tool.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_topic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/mns/mns_xml_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/access_log.8080" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/createqueue.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/createtopic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/deletequeue.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/deletetopic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/endpoint_log.8080" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/publishmessage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/recvdelmessage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/sample_common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/sendmessage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/simple_http_notify_endpoint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/simple_https_notify_endpoint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/subscribe.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/sample/subscribe_queueendpoint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/mns_python_sdk/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dysms_python/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/项目日志.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../项目日志.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/shop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/shop/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop/category.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,8 +64,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1875" />
-          <entry key="py" value="4992" />
+          <entry key="html" value="1917" />
+          <entry key="py" value="5121" />
           <entry key="py@market" value="223" />
           <entry key="txt" value="74" />
         </counts>
@@ -145,9 +73,9 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CommandLine" value="159" />
-          <entry key="HTML" value="1875" />
+          <entry key="HTML" value="1917" />
           <entry key="PLAIN_TEXT" value="138" />
-          <entry key="Python" value="4992" />
+          <entry key="Python" value="5121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -181,11 +109,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/shop/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="90" column="9" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="9" />
+            <state relative-caret-position="102">
+              <caret line="96" column="16" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="16" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
                 <marker date="1548306582058" expanded="true" signature="194:199" ph="..." />
@@ -204,11 +132,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/shop/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="24" column="24" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="24" />
+            <state relative-caret-position="214">
+              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-                <marker date="1548309583815" expanded="true" signature="173:178" ph="..." />
+                <marker date="1548329316134" expanded="true" signature="173:178" ph="..." />
               </folding>
             </state>
           </provider>
@@ -218,7 +146,7 @@
         <entry file="file://$PROJECT_DIR$/templates/shop/detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="179">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -235,13 +163,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/shop/category.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="-753">
+              <caret line="59" column="54" lean-forward="true" selection-start-line="59" selection-start-column="54" selection-end-line="59" selection-end-column="54" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/shop/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
@@ -307,10 +238,10 @@
         <option value="$PROJECT_DIR$/market/settings.py" />
         <option value="$PROJECT_DIR$/apps/shop/models.py" />
         <option value="$PROJECT_DIR$/templates/shop/detail.html" />
-        <option value="$PROJECT_DIR$/apps/shop/urls.py" />
-        <option value="$PROJECT_DIR$/apps/shop/views.py" />
         <option value="$PROJECT_DIR$/templates/shop/index.html" />
+        <option value="$PROJECT_DIR$/apps/shop/urls.py" />
         <option value="$PROJECT_DIR$/templates/shop/category.html" />
+        <option value="$PROJECT_DIR$/apps/shop/views.py" />
       </list>
     </option>
   </component>
@@ -320,9 +251,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="24" />
-    <option name="y" value="63" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="84" />
+    <option name="y" value="59" />
     <option name="width" value="1271" />
     <option name="height" value="653" />
   </component>
@@ -484,14 +415,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="84" y="59" width="1271" height="653" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17549168" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19157721" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.45320198" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.17953669" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7434095" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -862,28 +794,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/shop/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/shop/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="24" />
+        <state relative-caret-position="179">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/shop/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
-            <marker date="1548309583815" expanded="true" signature="173:178" ph="..." />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/shop/detail.html">
+    <entry file="file://$PROJECT_DIR$/templates/shop/category.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="-753">
+          <caret line="59" column="54" lean-forward="true" selection-start-line="59" selection-start-column="54" selection-end-line="59" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/shop/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+            <marker date="1548329316134" expanded="true" signature="173:178" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/shop/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="90" column="9" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="9" />
+        <state relative-caret-position="102">
+          <caret line="96" column="16" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="16" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
             <marker date="1548306582058" expanded="true" signature="194:199" ph="..." />
@@ -894,23 +846,6 @@
             <marker date="1548306582058" expanded="true" signature="4318:4323" ph="..." />
             <marker date="1548306582058" expanded="true" signature="4563:4568" ph="..." />
             <marker date="1548306582058" expanded="true" signature="5119:5338" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/shop/category.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/shop/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
