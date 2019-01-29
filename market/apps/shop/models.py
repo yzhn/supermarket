@@ -195,7 +195,7 @@ class Active(models.Model):
 # 是否删除
 
 class ActivityArea(models.Model):
-    choices = (('下架', 0), ('上架', 1))
+    choices = ((0, '下架'), (1, '上架'))
     act_name = models.CharField(max_length=100, verbose_name='活动专区产品名称')
     describe = models.TextField(null=True, blank=True, verbose_name='产品描述')
     order = models.SmallIntegerField(default=0, verbose_name='轮播排序')

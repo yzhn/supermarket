@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',  # 全文检索框架
     # 添加用户user
     'user.apps.UserConfig',
     # 添加商品shop
@@ -176,3 +177,15 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+# 全文检索框架的配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 配置搜索引擎
+        'ENGINE': 'utils.whoosh_cn_backend.WhooshEngine',
+        # 配置索引文件目录
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+# 当添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

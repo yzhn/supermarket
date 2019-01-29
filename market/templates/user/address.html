@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>新增收货地址</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+{#    <link rel="icon" type="image/png" href="/theme/default/images/favicon.png">#}
+    <link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/area.js' %}"></script>
+{#    <script src="{% static 'js/common.js' %}"></script>#}
+    <script src="{% static 'js/Popt.js' %}"></script>
+    <script src="{% static 'js/cityJson.js' %}"></script>
+    <script src="{% static 'js/citySet.js' %}"></script>
+    <style type="text/css">
+        ._citys {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            position: relative;
+            background-color: #fff0ff;
+        }
+
+        ._citys span {
+            color: #56b4f8;
+            height: 15px;
+            width: 15px;
+            line-height: 15px;
+            text-align: center;
+            border-radius: 3px;
+            position: absolute;
+            right: 1em;
+            top: 10px;
+            border: 1px solid #56b4f8;
+            cursor: pointer;
+        }
+
+        ._citys0 {
+            width: 100%;
+            height: 34px;
+            display: inline-block;
+            border-bottom: 2px solid #56b4f8;
+            padding: 0;
+            margin: 0;
+        }
+
+        ._citys0 li {
+            float: left;
+            height: 34px;
+            line-height: 34px;
+            overflow: hidden;
+            font-size: 15px;
+            color: #888;
+            width: 80px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .citySel {
+            background-color: #56b4f8;
+            color: #fff !important;
+        }
+
+        ._citys1 {
+            width: 100%;
+            height: 80%;
+            display: inline-block;
+            padding: 10px 0;
+            overflow: auto;
+        }
+
+        ._citys1 a {
+            height: 35px;
+            display: block;
+            color: #666;
+            padding-left: 6px;
+            margin-top: 3px;
+            line-height: 35px;
+            cursor: pointer;
+            font-size: 13px;
+            overflow: hidden;
+        }
+
+        ._citys1 a:hover {
+            color: #fff;
+            background-color: #56b4f8;
+        }
+
+        .ui-content {
+            border: 1px solid #EDEDED;
+        }
+
+        li {
+            list-style-type: none;
+        }
+    </style>
+
+</head>
+<body>
+<header data-am-widget="header" class="am-header am-header-default sq-head ">
+    <div class="am-header-left am-header-nav">
+        <a href="javascript:history.back()" class="">
+            <i class="am-icon-chevron-left"></i>
+        </a>
+    </div>
+    <h1 class="am-header-title">
+        <a href="" class="">新增收货地址</a>
+    </h1>
+</header>
+<form method="post" action="">
+    {% csrf_token %}
+<div style="height: 60px;"></div>
+<ul class="address">
+    <li >
+       <span id="city" style="padding-left:5px;">省市区</span>
+    </li>
+    <li><input type="text" class="add-input" placeholder="详细地址"/></li>
+    <li><input type="text" class="add-input" placeholder="收货人姓名"/></li>
+    <li><input type="text" class="add-input" placeholder="请输入手机号码"/></li>
+</ul>
+    </form>
+<div class="moren">
+    <label class="am-checkbox am-warning">
+        <input type="checkbox" checked="checked" value="1" data-am-ucheck checked>设为默认
+    </label>
+
+</div>
+
+<input type="submit" class="login-btn" value="确认提交">
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/amazeui.min.js' %}"></script>
+<script type="text/javascript">
+		$("#city").click(function (e) {
+			SelCity(this,e);
+			{#console.log(this);#}
+		});
+	</script>
+
+</body>
+</html>

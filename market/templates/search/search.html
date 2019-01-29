@@ -1,0 +1,75 @@
+{% load static %}
+{% load highlight %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>商品分类</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'js/time.js' %}"></script>
+    <style>
+        .shop-list-mid .tit a {
+            color: #909090;
+            font-size: 1.4rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;
+        }
+        .highlight{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<header data-am-widget="header" class="am-header am-header-default sq-head ">
+    <div class="am-header-left am-header-nav">
+        <a href="javascript:history.back()" class="">
+            <i class="am-icon-chevron-left"></i>
+        </a>
+    </div>
+    <div class="cate-search">
+        <form action="/search/" method="get">
+            <input type="text" name="q" value="{{ query }}" class="cate-input" placeholder="{{ query|default:'请输入您要的搜索的产品关键词' }}"/>
+            <input type="submit" class="cate-btn" value=""/>
+        </form>
+    </div>
+</header>
+    {% if query %}
+        <ul class="list-pro">
+            {% for result in page %}
+                <li>
+                    <a href="{% url 'shop:详情' result.object.pk %}"><img
+                            src=" {{ MEDIA_URL }}{{ result.object.shop_logo }}"
+                            class="list-pic"/></a>
+                    <div class="shop-list-mid" style="width: 65%;">
+                        <div class="tit"><a
+                                href="{% url 'shop:详情' result.object.pk %}">
+                            {% highlight result.object.spu_id.shop_name with query html_tag "i" css_class "highlight" %}
+                            &emsp;
+                         {% highlight result.object.shop_name with query html_tag "i" css_class "highlight" %}</a>
+                        </div>
+                        <div class="am-gallery-desc">{{ result.object.price }}</div>
+                        <p>{{ result.object.sales }}</p>
+                    </div>
+                </li>
+            {% empty %}
+                <li>
+                    <a href="#">该分类下商品已下架</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

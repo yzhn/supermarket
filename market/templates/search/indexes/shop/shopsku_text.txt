@@ -1,0 +1,6 @@
+# 指定搜索的字段
+{{object.shop_name}}
+{{object.shop_brief}}
+{{object.price}}
+{{object.spu_id.shop_name}}
+{{object.spu_id.shop_detail}}

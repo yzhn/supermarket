@@ -1,10 +1,15 @@
 import hashlib
+
+from django.http import JsonResponse
 from django.shortcuts import redirect
 from aliyunsdkdysmsapi.request.v20170525 import SendSmsRequest
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkcore.profile import region_provider
 
+from cart.helper import json_msg
 from market.settings import SECRET_KEY, ACCESS_KEY_ID, ACCESS_KEY_SECRET
+
+
 # 密码加密
 def set_password(password):
     # 循环加密 + 加盐
@@ -30,8 +35,14 @@ def check_login(func):  # 登录验证装饰器
     def verify_login(request, *args, **kwargs):
         # 验证session中是否有登录标识
         if request.session.get("ID") is None:
-            # 跳转到登录
-            return redirect('user:登录')
+            referer = request.META.get('HTTP_REFERER', None)
+            if referer:
+                request.session['referer'] = referer
+            if request.is_ajax():
+                return JsonResponse(json_msg(1, '未登录'))
+            else:
+                # 跳转到登录
+                return redirect('user:登录')
         else:
             # 调用原函数
             return func(request, *args, **kwargs)

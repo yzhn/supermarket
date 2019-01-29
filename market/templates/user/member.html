@@ -62,7 +62,7 @@
 		  	</div>
 		    <ul class="user-nav">
 		    	<li><a href="{% url 'user:个人资料' %}"> <img src="{% static 'images/1-icon4.png' %}"> <p>个人资料</p></a></li>
-		    	<li><a href="gladdress.html"> <img src="{% static 'images/1-icon5.png' %}"> <p>收货地址</p></a></li>
+		    	<li><a href="{% url 'user:地址列表' %}"> <img src="{% static 'images/1-icon5.png' %}"> <p>收货地址</p></a></li>
 		    	<li><a href="saftystep.html"> <img src="{% static 'images/1-icon6.png' %}"> <p>安全设置</p></a></li>
 		    	<li><a href="money.html"> <img src="{% static 'images/1-icon7.png' %}"> <p>我的钱包</p></a></li>
 		    </ul>
@@ -158,7 +158,7 @@
  <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout" id="">
       <ul class="am-navbar-nav am-cf am-avg-sm-5">
           <li>
-            <a href="index.html" class="">
+            <a href="{% url 'shop:首页' %}" class="">
                 <span class="am-icon-home"></span>
                 <span class="am-navbar-label">首页</span>
             </a>
@@ -170,7 +170,7 @@
             </a>
           </li>
           <li>
-            <a href="shopcart.html" class="">
+            <a href="{% url 'cart:展示购物车' %}" class="">
                 <span class="am-icon-shopping-cart"></span>
                 <span class="am-navbar-label">购物车</span>
             </a>
@@ -183,7 +183,7 @@
           </li>
 
           <li>
-            <a href="member.html" class="curr">
+            <a href="{% url 'user:个人中心' %}" class="curr">
                 <span class="am-icon-user"></span>
                 <span class="am-navbar-label">我的</span>
             </a>

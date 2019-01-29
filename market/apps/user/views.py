@@ -1,7 +1,7 @@
 import uuid
 import random
 
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from django.shortcuts import render, redirect
 
 from django.views import View
@@ -11,7 +11,7 @@ from django_redis import get_redis_connection
 
 from db.base_view import VerifyLoginView
 from user.forms import RegisterModelForm, LoginModelForm, ForgetPasswordModelForm, ReviseModelForm, \
-    MemberModelForm
+    MemberModelForm, AddressAddForm
 from user.helper import set_password, login, check_login, send_sms
 from user.models import Register
 
@@ -104,8 +104,14 @@ class LoginView(View):
             # 保存登录标识到session中
             user = login_form.cleaned_data['user']
             login(request, user)
-            # 合成响应, 跳转到个人中心
-            return redirect('user:个人中心')
+            referer = request.session.get('referer')
+            if referer:
+                #     跳转回去
+                del request.session['referer']
+                return redirect(referer)
+            else:
+                # 合成响应, 跳转到个人中心
+                return redirect('user:个人中心')
         else:
             context = {'errors': login_form.errors}
             return render(request, 'user/login.html', context=context)
@@ -217,3 +223,25 @@ class MemberView(VerifyLoginView):
 
     def post(self, request):
         pass
+
+
+class AddressView(VerifyLoginView):
+    def get(self, request):
+        return render(request, 'user/address.html')
+
+    def post(self, request):
+        # 获取数据
+        # 强制转化为字典
+        data = request.POST.dict()
+        data['use_id'] = request.session.get('ID')
+        form = AddressAddForm(data)
+        if form.is_valid():
+            form.instance.user = Register.objects.get(pk=data['use_id'])
+            form.save()
+            return redirect('user:地址列表')
+        else:
+            return HttpResponse('失败')
+
+class Addresslist(VerifyLoginView):
+    def get(self, request):
+        return render(request, 'user/gladdress.html')
