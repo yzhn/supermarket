@@ -1,7 +1,7 @@
 import uuid
 import random
 
-from django.http import JsonResponse,HttpResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
 from django.views import View
@@ -13,7 +13,7 @@ from db.base_view import VerifyLoginView
 from user.forms import RegisterModelForm, LoginModelForm, ForgetPasswordModelForm, ReviseModelForm, \
     MemberModelForm, AddressAddForm
 from user.helper import set_password, login, check_login, send_sms
-from user.models import Register
+from user.models import Register, UserAddress
 
 
 # 发送短消验证码
@@ -210,7 +210,7 @@ class InforView(VerifyLoginView):
             return render(request, 'user/infor.html', context=context)
 
 
-"""个人中心"""
+# 个人中心
 
 
 class MemberView(VerifyLoginView):
@@ -242,6 +242,104 @@ class AddressView(VerifyLoginView):
         else:
             return HttpResponse('失败')
 
+
+#  收货地址列表页
 class Addresslist(VerifyLoginView):
+
     def get(self, request):
-        return render(request, 'user/gladdress.html')
+        # 获取收货地址,所有的, 当前用户的
+        user_id = request.session.get("ID")
+        # 查询
+        addresses = UserAddress.objects.filter(user_id=user_id, is_delete=False).order_by("-isDefault")
+
+        # 渲染数据
+        context = {
+            'addresses': addresses
+        }
+        return render(request, 'user/gladdress.html', context)
+
+
+#  收货地址添加页
+class AddressAddView(VerifyLoginView):
+
+    def get(self, request):
+        return render(request, 'user/address.html')
+
+    def post(self, request):
+        # 接收参数
+        data = request.POST.dict()
+        data['user_id'] = request.session.get("ID")
+        # 验证参数
+        form = AddressAddForm(data)
+        # 处理数据
+        if form.is_valid():
+            form.instance.user_id = request.session.get("ID")
+            # modelform对象上有个save()方法,直接就能保存数据
+            form.save()
+            # 返回响应 返回收货地址列表页面
+            return redirect("user:address")
+        else:
+            context = {
+                "form": form,
+            }
+            return render(request, "user/address.html", context)
+
+
+# 收货地址修改页
+class AddressEditView(VerifyLoginView):
+
+    def get(self, request, id):
+        # 查询当前用户的 当前id的收货地址
+        user_id = request.session.get("ID")
+        # 查询
+        try:
+            address = UserAddress.objects.get(user_id=user_id, pk=id)
+        except UserAddress.DoesNotExist:
+            return redirect("user:address")
+
+        # 渲染到页面
+        context = {
+            "address": address
+        }
+
+        return render(request, 'user/address_edit.html', context)
+
+    def post(self, request, id):
+        # 接收数据
+        data = request.POST.dict()
+        # 验证数据
+        user_id = request.session.get("ID")
+        data['user_id'] = user_id
+        form = AddressAddForm(data)
+        # 处理数据
+        if form.is_valid():
+            # 更新 根据主键id
+            cleaned_data = form.cleaned_data
+            id = data.get('id')
+            UserAddress.objects.filter(user_id=user_id, pk=id).update(**cleaned_data)
+
+            # 跳转
+            return redirect("user:address")
+        else:
+            # 返回响应
+            context = {
+                "form": form,
+                "address": data
+            }
+            return render(request, 'user/address_edit.html', context)
+
+
+# 删除收货地址
+def delAddress(request):
+    if request.method == "POST":
+        # 必须登陆
+        user_id = request.session.get('ID')
+        id = request.POST.get("id")
+        if user_id is None:
+            return JsonResponse({"code": 1, "errmsg": "没有登陆!"})
+        # 删除的时候最好 用户的id条件加上
+        UserAddress.objects.filter(user_id=user_id, pk=id).update(isDelete=True)
+        # 返回结果
+        return JsonResponse({"code": 0})
+    else:
+        return JsonResponse({"code": 2, "errmsg": "请求方式错误"})

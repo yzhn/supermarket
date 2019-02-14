@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>新增收货地址</title>
+    <title>修改收货地址</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -14,17 +14,18 @@
     <link href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
     <script src="{% static 'js/area.js' %}"></script>
-    <script src="{% static 'js/common.js' %}"></script>
+    {#    <script src="{% static 'js/common.js' %}"></script>#}
     <script src="{% static 'js/Popt.js' %}"></script>
     <script src="{% static 'js/cityJson.js' %}"></script>
     <script src="{% static 'js/citySet.js' %}"></script>
+
+
     <style type="text/css">
         ._citys {
             width: 100%;
             height: 100%;
             display: inline-block;
             position: relative;
-            background-color: #fff0ff;
         }
 
         ._citys span {
@@ -99,8 +100,15 @@
         li {
             list-style-type: none;
         }
-    </style>
 
+        ._citys {
+            background-color: white
+        }
+
+        #city {
+            width: 20rem
+        }
+    </style>
 </head>
 <body>
 <header data-am-widget="header" class="am-header am-header-default sq-head ">
@@ -110,48 +118,51 @@
         </a>
     </div>
     <h1 class="am-header-title">
-        <a href="" class="">新增收货地址</a>
+        <a href="" class="">修改收货地址</a>
     </h1>
 </header>
-<form method="post" action="">
+<div style="height: 60px;"></div>
+}
+<form action="" method="post">
     {% csrf_token %}
+    <input type="hidden" name="id" value="{{ address.id }}">
     <ul class="address">
         <li>
-            <span id="city" style="padding-left:5px;">请选择地址</span>
+                <span id="city" style="padding-left:5px;">
+                    {{ address.hcity }}
+                    {{ address.hproper }}
+                    {{ address.harea }}
+                </span>
+            <input type="hidden" name="harea" data-id="0" id="harea" value="{{ address.harea }}">
+            <input type="hidden" name="hproper" data-id="0" id="hproper" value="{{ address.hproper }}">
+            <input type="hidden" name="hcity" data-id="0" id="hcity" value="{{ address.hcity }}">
         </li>
         <p class="am-text-danger">{{ form.errors.harea.0 }}</p>
-        <li><input type="text" name="detail" class="add-input" placeholder="详细地址"/></li>
+        <li><input type="text" name="detail" class="add-input" value="{{ address.detail }}" placeholder="详细地址"/></li>
         <p class="am-text-danger">{{ form.errors.detail.0 }}</p>
-        <li><input type="text" name="username" class="add-input" placeholder="收货人姓名"/></li>
+        <li><input type="text" name="username" class="add-input" value="{{ address.username }}" placeholder="收货人姓名"/>
+        </li>
         <p class="am-text-danger">{{ form.errors.username.0 }}</p>
-        <li><input type="text" name="phone" class="add-input" placeholder="收货人手机号"/></li>
+        <li><input type="text" name="phone" class="add-input" value="{{ address.phone }}" placeholder="收货人手机号"/></li>
         <p class="am-text-danger">{{ form.errors.phone.0 }}</p>
     </ul>
     <div class="moren">
         <label class="am-checkbox am-warning">
-            <input type="checkbox" name="isDefault" checked="checked" data-am-ucheck checked>设为默认
+            <input type="checkbox" name="isDefault" data-am-ucheck {% if address.isDefault %}checked{% endif %}>设为默认
         </label>
 
     </div>
     <p class="am-text-danger">{{ form.non_field_errors.0 }}</p>
     <input type="submit" class="login-btn" value="确认提交">
 </form>
-<div class="moren">
-    <label class="am-checkbox am-warning">
-        <input type="checkbox" checked="checked" value="1" data-am-ucheck checked>设为默认
-    </label>
-
-</div>
-
-<input type="submit" class="login-btn" value="确认提交">
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/amazeui.min.js' %}"></script>
+
 <script type="text/javascript">
     $("#city").click(function (e) {
         SelCity(this, e);
         console.log(this);
     });
 </script>
-
 </body>
 </html>
